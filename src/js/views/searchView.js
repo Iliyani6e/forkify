@@ -42,7 +42,7 @@ const renderRecipe = recipe => {
 </li>`;
   elements.searchResList.insertAdjacentHTML("beforeend", markup);
 };
-
+//
 //type: 'prev' or 'next'
 const createButton = (page, type) =>
   ` <button class="btn-inline results__btn--${type}" 
@@ -73,6 +73,7 @@ const renderButtons = (page, numResults, resPerPage) => {
   elements.searchResPages.insertAdjacentHTML("afterbegin", button);
 };
 
+//pagination
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
   //render results of the  current page
   const start = (page - 1) * resPerPage;
