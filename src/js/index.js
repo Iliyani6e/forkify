@@ -92,3 +92,21 @@ const controlRecipe = async () => {
 ["hashchange", "load"].forEach(event => {
   window.addEventListener(event, controlRecipe);
 });
+
+//Handling recipe button clicks
+
+elements.recipe.addEventListener("click", e => {
+  // The '*' symbol after the btn-decrease class means 'the event will be triggered if clicked on any child of the element with this class'
+  if (e.target.matches(".btn-decrease, .btn-decrease *")) {
+    //decrease button is clicked
+    if (state.recipe.servings > 1) {
+      state.recipe.updateServings("dec");
+      recipeView.updateServingsIngredients(state.recipe);
+    }
+  } else if (e.target.matches(".btn-increase, .btn-increase *")) {
+    //increase button is clicked
+    state.recipe.updateServings("inc");
+    recipeView.updateServingsIngredients(state.recipe);
+  }
+  console.log(state.recipe);
+});
