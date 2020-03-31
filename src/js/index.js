@@ -132,11 +132,13 @@ elements.shopping.addEventListener("click", e => {
   }
 });
 
+//TESTING
+state.likes = new Likes();
+likesView.toggleLikeMenu(state.likes.getNumLikes());
+
 /*******************/
 //LIKES CONTROLLER
 //****************/
-//TESTING
-state.likes = new Likes();
 
 const controlLike = () => {
   if (!state.likes) state.likes = new Likes();
@@ -162,6 +164,7 @@ const controlLike = () => {
     likesView.toggleLikeBtn(false);
     //Remove like from the UI list
   }
+  likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
 
 //Handling recipe button clicks
