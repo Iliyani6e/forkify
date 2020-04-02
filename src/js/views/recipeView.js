@@ -8,6 +8,7 @@ const formatCount = count => {
   if (count) {
     // count = 2.5 --> 5/2 --> 2 1/2
     // count = 0.5 --> 1/2
+    //Math.round returns a whole numbers only ,so we use the multiplication and devision by 10000 to set the numbers after the decimal
     const newCount = Math.round(count * 10000) / 10000;
     const [int, dec] = newCount
       .toString()

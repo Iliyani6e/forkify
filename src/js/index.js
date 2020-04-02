@@ -17,8 +17,6 @@ import { elements, renderLoader, clearLoader } from "./views/base";
 
 const state = {};
 
-window.state = state;
-
 //SEARCH CONTROLLER
 
 const controllSearch = async () => {
@@ -64,7 +62,7 @@ elements.searchResPages.addEventListener("click", e => {
 const controlRecipe = async () => {
   //Get the ID from the URL
   const id = window.location.hash.replace("#", "");
-  //  console.log(id);
+
   if (id) {
     //Prepare the UI for changes
     recipeView.clearRecipe();
@@ -78,7 +76,6 @@ const controlRecipe = async () => {
     try {
       //Get the recipe data and parse the ingredients
       await state.recipe.getRecipe();
-      // console.log(state.recipe.ingredients);
       state.recipe.parseIngredients();
 
       //Calculate servings and time
@@ -87,7 +84,6 @@ const controlRecipe = async () => {
       //Render the recipe
       clearLoader();
       recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
-      // console.log(state.recipe.ingredients);
     } catch (err) {
       alert(err);
     }
@@ -201,5 +197,4 @@ elements.recipe.addEventListener("click", e => {
     //Like controller
     controlLike();
   }
-  // console.log(state.recipe);
 });
